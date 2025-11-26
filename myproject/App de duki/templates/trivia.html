@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia de Duki - 30 Preguntas</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a00ff, #c600ff);
+            padding: 20px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px #6a00ff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .card {
+            background: #111;
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid #333;
+            margin-bottom: 25px;
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.2);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 18px rgba(255, 0, 255, 0.4);
+        }
+
+        button {
+            background: linear-gradient(90deg, #ff00bb, #7b00ff);
+            padding: 12px 22px;
+            border: none;
+            color: white;
+            font-size: 17px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 12px #ff00bb;
+        }
+
+        .resultado {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            background: #1a1a1a;
+            border: 1px solid #5500aa;
+            box-shadow: 0 0 12px rgba(170, 0, 255, 0.4);
+            display: none;
+        }
+
+        .emoji {
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>🔥 TRIVIA DEFINITIVA DE DUKI – 30 PREGUNTAS 🔥</header>
+
+<div class="container">
+
+<h2 style="text-align:center; font-size:30px; margin-bottom:25px;">
+    Demuestra si eres fan real del Duko 😈🎤💜
+</h2>
+
+<form id="triviaForm"></form>
+
+<div style="text-align:center;">
+    <button type="button" onclick="calcular()">Enviar respuestas</button>
+</div>
+
+<div id="resultado" class="resultado"></div>
+
+</div>
+
+<script>
+    const preguntas = [
+        {p: "¿En qué año nació Duki?", o: ["1996", "1998", "2000"], c: 0},
+        {p: "¿Cómo se llama su nombre real?", o: ["Mauro Ezequiel Lombardo", "Matías Ezequiel Torres", "Mauro Gabriel Duarte"], c: 0},
+        {p: "¿Qué género empezó dominando?", o: ["Trap", "Pop", "Rock"], c: 0},
+        {p: "¿Qué canción lo hizo viral?", o: ["Hello Cotto", "Goteo", "She Don't Give a FO"], c: 2},
+        {p: "¿Cuál fue su primera BZRP Session?", o: ["#12", "#5", "#50"], c: 2},
+        {p: "¿Cómo se llama su fandom?", o: ["Los Duko Lovers", "Diablos y diablas", "No tiene"], c: 1},
+        {p: "¿Qué álbum lanzó en 2021?", o: ["Desde el Fin del Mundo", "Ameri", "Súper Sangre Joven"], c: 0},
+        {p: "¿De qué barrio viene?", o: ["La Boca", "Buenos Aires", "Almagro"], c: 2},
+        {p: "¿Qué deporte practicaba antes?", o: ["Futbol", "Basquet", "Boxeo"], c: 1},
+        {p: "¿En qué año salió Goteo?", o: ["2020", "2019", "2018"], c: 1},
+        {p: "¿Quién produjo 'Goteo'?", o: ["Bizarrap", "Asan", "Tiago"], c: 1},
+        {p: "¿En qué año lanzó 'Temporada de Reggaetón 1'?", o: ["2023", "2021", "2022"], c: 1},
+        {p: "¿Qué artista aparece en 'Hablamos Mañana'?", o: ["Rauw Alejandro", "Bad Bunny", "Feid"], c: 1},
+        {p: "¿Qué álbum es el más experimental?", o: ["Desde el Fin del Mundo", "Antes de Ameri", "SSJ"], c: 1},
+        {p: "¿Cuál es una frase típica de Duki?", o: ["Modo diablo", "Bendiciones", "Siempre humilde"], c: 0},
+        {p: "¿Qué marca usa mucho Duki?", o: ["Adidas", "Nike", "Puma"], c: 1},
+        {p: "¿En qué año hizo el Vélez?", o: ["2023", "2022", "2021"], c: 1},
+        {p: "¿Qué canción tiene con Emilia?", o: ["Como si no importara", "Disciplina", "Éxodo"], c: 0},
+        {p: "¿Qué grupo formó con Ysy A y Neo Pistea?", o: ["Los Trappers", "Modo Diablo", "La Junta"], c: 1},
+        {p: "¿Qué canción menciona 'modo diablo'?", o: ["Goteo", "She Don't Give a FO", "H.I.E.L.O"], c: 2},
+        {p: "¿Cuál NO es de Duki?", o: ["Donde Estas", "Goteo", "Malbec"], c: 0},
+        {p: "¿Con quién grabó un tema por primera vez en 2024?", o: ["Paulo Londra", "Khea", "Wiz Khalifa"], c: 2},
+        {p: "¿Con quién colaboró en 'Party en el Barrio'?", o: ["Paulo Londra", "Bizarrap", "FMK"], c: 0},
+        {p: "¿Cuál fue su primer álbum?", o: ["SSJ", "Desde el Fin del Mundo", "Ameri"], c: 0},
+        {p: "¿Con qué productor trabaja desde sus inicios?", o: ["Asan", "Bizarrap", "LIT Killah"], c: 0},
+        {p: "¿Qué tema tiene referencias a Dragon Ball?", o: ["Hello Cotto", "Héroe", "Rockstar"], c: 2},
+        {p: "¿Cuál es su bebida favorita mencionada en lives?", o: ["Monster", "Coca Cola", "Fernet"], c: 2},
+        {p: "¿Qué álbum lanzó después de 'Antes de Ameri'?", o: ["Ameri", "SSJ 2", "Modo Diablo"], c: 0},
+        {p: "¿Qué país visita más en giras?", o: ["México", "España", "Chile"], c: 0},
+        {p: "¿Qué significa 'El Duko'?", o: ["El Líder", "El Jefe", "El Maestro"], c: 1}
+    ];
+
+    // GENERAR PREGUNTAS
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("triviaForm");
+
+        preguntas.forEach((q, i) => {
+            let card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <p><b>${i + 1}️⃣ ${q.p}</b></p>
+                ${q.o.map((op, idx) =>
+                    `<label><input type="radio" name="q${i}" value="${idx}"> ${op}</label><br>`
+                ).join("")}
+            `;
+
+            form.appendChild(card); 
+        });
+    });
+
+    // CALCULAR RESULTADO
+    function calcular() {
+        let puntos = 0;
+
+        preguntas.forEach((q, i) => {
+            let sel = document.querySelector(`input[name="q${i}"]:checked`);
+            if (sel && Number(sel.value) === q.c) puntos++;
+        });
+
+        let msg = "";
+        if (puntos <= 10) msg = "😅 Apenas te sabes algunas, pero tranqui… ¡Modo Diablo se aprende!";
+        else if (puntos <= 20) msg = "🔥 Vas muy bien, alto fan… pero aún no sos nivel Duko supremo.";
+        else if (puntos <= 28) msg = "💜🔥 ESE NIVEL, BRO. Sos fan REAL, respetadísimo.";
+        else msg = "👑🐐 ¡30/30! SOS UNA LEYENDA DEL DUKISMO. NADIE TE PUEDE DECIR NADA.";
+
+        let box = document.getElementById("resultado");
+        box.style.display = "block";
+        box.innerHTML = `
+            <span class="emoji">🎤💜</span>
+            Obtuviste <b>${puntos}/30</b> puntos<br><br>${msg}
+        `;
+    }
+</script>
+
+</body>
+</html>

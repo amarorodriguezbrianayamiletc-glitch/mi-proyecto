@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>DUKI FAN SITE</h1>
+
+        <div class="hero-grid">
+
+            <a href="{{ url_for('biografia') }}" class="hero-card">
+                <div class="card-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQozn_32XF8i3CgwXAL8XgEAo0BH6x9rTUy0ZTRmrahD-x09rmk-_VPu2E16UAFtiIVWRy1w12Kz68BiFCwvQIB34jeZDZIAHEOem6RiSBV&s=10');"></div>
+                <div class="card-content">
+                    <h2>Biografía</h2>
+                    <p>Descubre la historia del artista</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('discografia') }}" class="hero-card">
+                <div class="card-image" style="background-image: url('https://es.rollingstone.com/wp-content/uploads/2023/12/W5D7SUNCVFADPEIFXFQVKEE4EM.jpg');"></div>
+                <div class="card-content">
+                    <h2>Discografía</h2>
+                    <p>Toda su música en un solo lugar</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('visuales') }}" class="hero-card">
+                <div class="card-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEzxoPIgXbMDN14TD_ATWIKqlMlwUrVjNuPw&s');"></div>
+                <div class="card-content">
+                    <h2>Visuales</h2>
+                    <p>Videos y contenido visual</p>
+                </div>
+            </a>
+
+            <a href="{{ url_for('noticias') }}" class="hero-card">
+                <div class="card-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXjuTaaOPtKV040c4qrg7J64aSfTu-mmJmGQ&s');"></div>
+                <div class="card-content">
+                    <h2>Noticias y +</h2>
+                    <p>Mantente actualizado</p>
+                </div>
+            </a>
+
+            <!-- ⭐ AGREGADO: TARJETA DE TRIVIA -->
+            <a href="{{ url_for('trivia') }}" class="hero-card">
+                <div class="card-image" style="background-image: url('data:image/webp;base64,UklGRnoTAABXRUJQVlA4IG4TAABwWACdASrMALQAPp1InUslpCKxqBnZ+jATiWNtJJVEAI9MK+8zqu3gUf8F/nt6J6a/71iJdlQT+LqrGcuW7Lva/NMhqck2VXygaAflF/8XkY/aP+P7Bnlw+xr91/ZY/bhmbehFM3F088ccMUd/IFN2x2w20LND3q7f8KCxRNNxkjV3yNKS1dtrwiygQFhAGHPEhWU1nhaG9W8tGy0eetyLn9PKU9uvGBZi+jRLFS0kXWEiev1olJ+fzNJxxnOm/OzOhv9bD9UCRuflO2t37TrSYyzaScFNMqr6iug1QvVDM9fLJ3oYwLaPfWQ6x8JjIXlYzl+ZeHBNkf+UXp8TT804v8sbzlUWV9QVuK3JNUeNvrwlibL41/GlMxJLvIFc8ukNDPTX1REII9vi3sdAqaaU2NRPYxB3N8+C2zlUm5870WGc6R2tBM35OfDTm0gBbNswizALE63VIGqC9VzT5mj3UeGFPHYn1Oa+S1rj7VDukKzFXw6Kw1pc3TJ8TDviBv478Rk/OFF4Qg/IWzvThguHpjDNMM0pmEZYf0b7SEIlM2Dgn0OV97JStZoqLBOJIUUmCQxHfneuRumOFwZpDJbT+FR5XXQ4TYY1CyIIoMxjI6fMri5WKAX3xhIMzwO7s6gA+JzyAU1VHwqKhluOCtgJRZyt9FsLND3Kkh3ttzLLCOMVP9WKY1+9XuKIDkSg7iR/d7dSjtp0WP23rkudEzLLu9QFnpwRc1+XXOgqX/yM4MxcHSbiELW5FICrijHcz8mND/GRYKnJ/QOnrEu5SDE4EiTRVExvI98YGmK/roee2r9iAwpqZAg/1iCPpBw6bf2w0lXwJw9Ty3h6mafUCs0/arq/vsdxs7RfgG6Gkcs2rekQ8nTtWjKljszh0bDAOH9bjqb7Vgd29rfH6QiggihIKQCiCoaPsfd5ZQSpPFuqOD6CBn1csc8BpLQXAAD+/Jp4/30/D6cOpbQgzbN3uASumwtm29/ymbEloBDnaCcHohp/K0homwNYZ26XLbXnnwNf/wan3WLsvleTnxl6PvoKw3iHxx0/0siyA8MsppntPL6lTKsVxGHY0whh4bicO3uk4Aoj8n7UHdEyj5YYWkazzdJo7X5L8uqpRkk1dLQzeOOvsIgINgztuXut6mJjfbxgaY5r3BVx2uvjRXQy98hompI1phCReh0Zy0HVoC1TT9NbGjfWzM/ihOIwkeKnBlfTyI4s/TG5jzYVeCNVjYbGyF/jmW0pFWIm1fF1qxXj+UT3AVTi8jBJUYpBPYKaOAIfwpFoL0wCQeYopvMCAqR+AZuVG8gxsjcIVyjZqTfmZN0HvxjjvxSaAvXzLMWaIJqh7KmXQ54PCFFxxxjFCuwGNG4j7UBfdu4tcdOz7vqbXK0WxuqMYXLY2bNnIJtcXqjVYHnOfNbccCWFXTTZwECMi8NsW6md3NLEVy03kTQUq4PN2/2Svt8Z2fVoh+g2j9mR6XJ84FgipYNOI2fgHHonn1Xa3T6UWVgm+QkZN2/moXFgTJBjasGuRsx3qHX0R7sZ5hMKWCglSoxcZ9gkIvb2DZgncpnCWSCUOXV5dwrmM5XdroVV4O/EuaBqvGMf8uNQV3F5eY8FxXHdLjh1WmzWsMBG9gPiRrCGWcqYxExQbbNh721lNOBnOQYdyY5poVnja0X4EDC6sKvOcXU5r3nX/WU1e/6IYxCaIPlzsJXWlutKouJKPActH2xrFwknOoN+vSSMhWbkYY9eTwJtGa+fbI27mVgfMnmmOH0u9C62N2clgZ4NSn5xn/R+srWb3OVGePapDiOPhH/F3SHBdX21agoqw+H34GJ3cbsin+Q7prJCox/weyJwEeuiZ9vT2crgcsUwxgfKGqCVNZ0NS+xqYeIuwEhOycPene9LD2Z2MSFf3utr/JzYzKkaDr0GXWmjgFz9xS/pKv8iNDo02Im8XYYIuB+cih17aht+1OeHwEWOhkMKMkVdrExBHtUXlfUGaFuXNV/d+K6A/IcGNl3OwXRRhybf5OZwBiKGv0z+te75dYeOMtH7sGamvAqBTX4bO3XvUZ5Zsvmpqa0kL+o58NLQV0jz+aMRXZqBsQdHjx5V4bcT+UjEfh4S/0MLXQSzSNXacR+ge37neC8qClM6UFE7/5jOlvE7dE56ts4DBqoaovxiUEUVzsaXlVBlstSxu92Cm8knAhSi4FrDDWl0wHNxmE3WpcZrkVdwheWMhU97n12jxSRFYL9qD5ceh3P3QNwPDJbZMtbF9QdQymPeDiz81ln8gn0k+cP6GqjwjkSDVl2SgiuRV9bBOgps2Je4DeLXZhSMq4cGND23R0fLXDg8M4omrZ1qQPItXYnJjoZtS4XORFjg0YmZVSQzd0TcwGign0f/51vXnahNaLP/cEM41LVyTpzzvWGPkgTTVcwaFPIQ/DkDRiFKYEkx8HBT5ri4qbNZgw10JeN1597YOaVbzc00253pMruVGhQjduTxuKXQWtY9lIrQjSORSvvaTI/ZjjZ4j1TVpuTCew9pnYUC198qXW5IBc36JIS3lwT9uHkQ/W4RC7wZupG2Lt7mR+zMHQL+gawxYPYrie/oG4H01en+EDsneL0bKvnUCTzSVF5og3TcgzB6jTLQauj7mNXlrsV5iuV+Va1VvUkxe3QlLkDtCPLt9pvOH5unhV0Q8CA7A8lLS/cgWeHTpOQlC1dhwG2EzIV+Yn0sf8txZPtAZQ8RsFraZ1nLdbWJcpWEKCXdAlITw6dQXF+sw0PAvmS5LndldGnlK8VRoVEj5KGrXuBmLqkmxTTnrsYwukiygNTcjTWwUxzZqrfi08aVNbT0AKCRWM3QELSAAmkq2SdWrKr8jYx+8E8HfGJFhK9lTMU7LEtTnVym0JyFL8rlK8fk4G+59VarLOJ8Dx9AzD49fwBQ5RtbewYZxQ+LtLKuCTiIhqmVU7GKXk+9LnU/HdFSdDlOUd/BtuBWk6oQwWR0cWP6Phx4770B61IcsiHA28nsw7duyZKKlNoVY+4YVPXx4bxbd450UyjNNqMnGCX336mXqeolp0GxU7jP+VechxTo9lcEDZFTLacGATQBJGPZLWURQP0XD1yWKCnSgpcQOy6vJ0m4cEVCd1YKddTJrD51MLxmXpMThVF5KILA/x0pymI5pq/9WoR5M+oqfeoZJJv+L/UGzXJ1QU4mW18uNNsqZ4q9vVGVHTw23WFzZHYtCZxc11iGimg+et5m8Sj1IbsqpUmRaDunaiFAiN2AZKKGdv09Kwc7WpzfjgIq/DHTdQRcveFzm3lW9dEdwUl06MSE6BEcWUKZBW+eVoETY6v1uTcF9YPNZbE+eQWW6fP/UL9DUJEBbiS8HzjDyA1gY8apSpGTQT3EReF4u15w0wDnQe3j4v8Bc3y7KEVcXKUPsXfPcyXl/GPYqdrYXFtqrlqky5Ny57k8q6/Tv71qOdY6uNaeo2ANIh2gTK1rsAGrzsoKM4qTfk5jNI0oW1bQHybA1IkD6J5/CGPcohQtURONcWAKZd81zgfXib5mEbuwwr1uKmX3GAaJXiBFG5WiqLnLnxJI1mLnbju87VQrpXe2dAZA14qPQx2QMeXAIMHX/rJB1i8C18f7U5QqBhEl7lNp9y5z2u2jwEHh9LLS2S/oSv78voOcCjtW4++MQt8YTp47qQUG8Mv34XmkHZXJitaApJCpPyFZWaaqMp52KUUXpPYXj3jehlz9WnHo1WdUCIqpXKmLfl+vIRl9BW24GNawTBEzuYhdi0+DmtLyc5wJC6LbN+puoGP8UbHvPN4SCcBV1k7OUQbF4Z2jfWR0JH3TDhdBS6xN+9BbbH9oWSaPzfrYVx8cq4llhEW54X3uT447TBcSEWIVn1RxRBH2jBQ/joibkBZIjmvX/Jo4bgTtyTaN+cvJI0IwmfVDjnFO6Iefo9CmYtGtha/AbcT687JU2fieBMPGojy0ClLbO2x30dOHyFv4M48MJPCXisQdsjUN0RIyPXk+kcqcXFzANbLkKrMhUZIndDN71gR3EZBHbN8ScDrxWeJZhlX43FaDNY+yVJ9fOwNRN+Gv5XeDgWMW1ydV6tgXszk1UlCcJ7BNWERx4ZOvWCxuTY7Hb+BAeJlBAQ7wqIG6JTOfGuOq8/RZx6Z+qoT/Aaz8o8ikkPwv6ZQtOgZzFFxY0RwDgZT3ov6PIkmsa3cXUDviQJfAvJ0po+/AiJo0THqX/tJt4eaqbub3+1FPpdJbmk09e7LxecJ4dCYoeaRlbjAkd9+GzqzM04SYFmJ3NwCSiR69R4ssTYZKCb/a3M/YSy6A/8e93l7ZnmNqjldh/7oUvSe7Cy6RdGPMer8aPgh/7icODWNsq5BFlY8L4sgDmKf/JAcpZ9aWU4bRx8DFXCWQl5wLSaKzqia4vsQPi+q2HktC8JFVfZIfARiYm07ar8lnc9LgojZXYJmSX+GbSc06o2jyjUu1Ay/tk19CKNueJp9UItpuFC1EHiaqgMGn4PHEhkb/f8WsuKjdk49aNzKo4saGZuCnI9IUQhK/CsVhgpjin0WNkNUfZRC9Q5eKaSfagca0vCJAbZpGHMhDdmiGQWQ6+X/CEPP6gXEj4QOboOhHmC3lku0NxM71ske5HE2oSibDZGLB7K7zqN8vVYSM7Oo+TL8ztuerJeT4khdJGqrxPuo8XXQAvo6ftEazwadj2uHhfRc+cmpqGpQH+zEy3O3jh44mTbQswN2a2Hd7b6SDW3gwF+Ep2ZhuQSLszfKar/bEsLIuJ18lPz0JiBLSzV+fiN9i/Z5xEkURjGRl4lPLteuytEp7N+/2wclfY1RqGmabfyXnZMiRyyZIzkETDxiOsJKqzZctOz1seeOrKMsdczD6/GrwYnX65Ytqzg1OLq7yafSZnWU9BBNyVa6EDlHiyVQS9RQ8gPUz0GoD4/Tm8FYWy0Ekqj2V8KeCudS8tpGGaz3QjKlo72alN9NYRUTnlq+emkvJiVxPH+mq1dks30zZIigAIUYCYzRmbFS9yM4J+vI+VZWw9BNqq4wh/nktk6w0PRV+4zws4pMaxzMePONVH6Km58lKyYFLbEI738/WW2wVL+86it5Le4P7jy/uJn7wQp1dv7zynUQYbyCqSh9ii0eC072LJ2KyCCUKDJ88jG/D2yuTvBH+c7MtcOVURKwqp+zpjxR4N0jF/h+abPEISLYBiu+dXhjL+ciX9JL2oHZXVTPlzth6K4EMRspsPTm0asD7+HBbBWu22CttvaK1Kv7NtpIdVpaj+zlwPgKN0olsgmfA26ZJeqzM/fEXuJf6y0vYCafz4fOIEFU7Y3DABhSA2pnSPcPsvhzP4NBEF9EN6dlKf4NyDMvdB9HsEv0IK25228xVhWqYCyKQX7CLLZo0qE1xq8/xiwWm6YJSWc16NgUKGPN998Ic6kYOau6893swXgfl/6yAFmuIDM+x1G4fSNNL+1FNAPVkyzF3rhcbXr78g4CnIe+VcXFxPO0L2TmsXHjjbfYZ9dQnwSMdGJ7qF5UlEPEqYvzZjMZpiA1duPy0xl48TAciBuOjQ+u0n1JEVF3et1HXxFintfmwSQ6CYiK9gu3Chr10xYBk4GsFQ5hSBNG+fIm8sKGjs4BnlBbZqHBYz6zPmvHy98baco7Xt/kNaNotjzx93Amgk9lYS7rxje3vLjL7mcD99AdbDOt413LMVmnWviIro3enUxvJGrdLgBSTja5ngsJeXD6SCX/S42f1LPqel49+2oD2H+DdwwftKwPqxD0f8gBw/YGNFQPGMqW75uua8HTS641YXzJqZ7nBHSZNbS8hzGsXHcO1Q7DymEwQ1PwUf+KKB0UsmqrBOpbTRfjzYvIUlSMgDuI5b4tNefx6rIREZ1Td7x3W7UqQPsJE5w/6ZOTZwwtheSZIKxpQLKPeodsDl7CXGiiWkhG86VXuSikXCoAi5ym/yXAY9PmKOemdz6eKboQKt3/7imlJIu4LkpILbq3Q3g7seB3t0n5qLBtbhW6QC3rkleS/Q5CjfaKycrcFh4Bg4I6SahUV5D42wk9M08htMNeTidHlMc6TU8ZFPVSb+Osb3aQlaj/tZGRalfRJv/n0450ozJEl9vDqH6j/wXww8fQxuFP1K5O/3JfpYHZs8Q0Ql+pzF1KIoYp3Utb5MXK+EtBoewS3sXkNbT9WGgPzNPVxF2QICNeWWt6fkAc1tgegMWoFChx9tn43LRs6Rs1os6V9PG/J+vJ/ONxzUm7DHMXeOEb7cCHIdVmdEnAI6q4nVfn5YCrEA8yniNlOTMpcgskX+kn6fgUFCB3LLtWYeXU3ArxVXsoFGgeCh1cg9sC0UU2Rg6ii+/HSqQNfvAPDziCVlyoRRHzVCIr+ABrSLvCVP4R7c7AF9nmlU+8yxXoGNahlOThD3k0Whum92OEccHjrQZXYTVfaCVxjAQeZ/Gc0N6QCQLbRh07G3hfwCMp3g8XQi24uhm4TLTKqUbmV9WgL8Qlukr5xVygt2vNHJCA9c4sMfG0ItF+IHKb1GnvqZtZzm9j/0K1kWIV79gUrHIs1Sc8uj7Edtz9xxNIa6zNwBsKHJuAXFMBPwn58H2seOWghhx3jCZkD36nXMn5yIx+hV4vZdXBW5W9CBro4rKprVMxv3wRSoMOCSjuQbAcwaW9AUAA=');"></div>
+                <div class="card-content">
+                    <h2>Trivia</h2>
+                    <p>¿Cuánto sabes de DUKI? 😈🔥</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
